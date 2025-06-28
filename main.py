@@ -3,7 +3,8 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials, OAuth2PasswordBear
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import pandas as pd
-from database import SessionLocal, engine, Base
+# Use local database for development
+from database_local import SessionLocal, engine, Base
 import crud, models, schemas
 import logging
 from datetime import datetime, timedelta
