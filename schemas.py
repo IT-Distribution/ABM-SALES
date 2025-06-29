@@ -13,7 +13,7 @@ class User(UserBase):
     is_active: bool
     created_at: datetime
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class Token(BaseModel):
     access_token: str
@@ -41,7 +41,7 @@ class ClientCreate(ClientBase):
 class Client(ClientBase):
     id: int
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ImportFileBase(BaseModel):
     filename: str
@@ -55,7 +55,7 @@ class ImportFile(ImportFileBase):
     clients: List[Client] = []
     client_count: int = 0
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ZoneBase(BaseModel):
     name: str
@@ -70,13 +70,13 @@ class Zone(ZoneBase):
     id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class UserWithZones(User):
     zones: List[Zone] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class RouteResponse(BaseModel):
     route_points: List[LatLngPoint]

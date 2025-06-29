@@ -3,9 +3,10 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials, OAuth2PasswordBear
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 import pandas as pd
-# Use local database for development
-from database_local import SessionLocal, engine, Base
-import crud, models, schemas
+from database import SessionLocal, engine, Base
+import crud
+import models
+import schemas
 import logging
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
@@ -43,7 +44,7 @@ security = HTTPBasic()
 
 # Simple admin credentials (à sécuriser plus tard)
 ADMIN_EMAIL = "Abm2025@gmail.com"
-ADMIN_PASSWORD = "Abm2025@2026"
+ADMIN_PASSWORD = "Abm2025@"
 
 def get_db():
     db = SessionLocal()
